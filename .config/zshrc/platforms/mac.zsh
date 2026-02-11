@@ -16,10 +16,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # !! Contents within this block are managed by 'conda init' !!
 
 # Points to the mamba binary (Conda-compatible package manager)
-export MAMBA_EXE='/Users/saiaikeshwetunaung/miniforge3/bin/mamba';
+export MAMBA_EXE="$HOME/miniforge3/bin/mamba";
 
 # sets the root prefix directory used by mamba/conda environments (eg mfa)
-export MAMBA_ROOT_PREFIX='/Users/saiaikeshwetunaung/miniforge3';
+export MAMBA_ROOT_PREFIX="$HOME/miniforge3";
 
 # Run mamba’s shell hook to get the init script, capture it in a variable
 # The hook prints shell code that sets up PATH, CONDA_* vars, activation functions, etc.
