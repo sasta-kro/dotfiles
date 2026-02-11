@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: THIS SCRIPT IS NOT TESTED YET
+
 # ==============================================================================
 # Universal Setup Script (Fedora & macOS)
 # 
