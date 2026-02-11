@@ -8,7 +8,7 @@ export LC_CTYPE="en_GB.UTF-8"
 
 
 # ====== Default Editor =====
-export EDITOR='vim'
+export EDITOR='nvim'
 
 
 # ====== Utility CLI programs =======
