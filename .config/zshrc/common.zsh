@@ -40,7 +40,7 @@ alias ...="cd ../.."
 ## EZA - better and prettier ls
 alias ls="eza --icons=always -a"  # show all files (hidden files as well)
 ## tree format prints
-alias ls1="eza --icons=always --no-permissions --no-user --no-time -a"
+alias ls1="eza --icons=always --long --no-permissions --no-user --no-time -a"
 alias ls2="eza --icons=always --tree --level=1 *"
 alias ls3="eza --icons=always --tree --level=2 *"
 
