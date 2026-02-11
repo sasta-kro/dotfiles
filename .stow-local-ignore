@@ -1,0 +1,31 @@
+# ======= stow's default ignores ===========
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+# ======== end of stow's default ignores =======
+
+
+# ==== My custom ignores ==========
+.DS_Store # shitty mac's desktop service config (unimportant)
+\.stow-local-ignore # Stow configuration itself
+.*repomix.* # equivalent to `**/*repomix*`

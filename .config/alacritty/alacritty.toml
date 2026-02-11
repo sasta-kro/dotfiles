@@ -1,0 +1,56 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+# Set startup mode to "Maximized" (Fills screen, but not full screen)
+# startup_mode = "Maximized"
+
+# if startup_mode is disable, terminal starts up half screen 
+dimensions = { columns = 73, lines = 42 }
+position = { x = 0, y = 0 }
+
+padding.x = 10
+padding.y = 10
+
+# removes the top bar (close, minimize buttons) from window for minimalistic look
+decorations = "Buttonless"
+
+
+opacity = 0.63
+blur = true
+
+[font]
+normal = { family = "MesloLGL Nerd Font Mono", style = "Regular" }
+size = 15
+
+[font.offset]
+x = 0    # Horizontal spacing (0 is default)
+y = -11  # Vertical spacing. Alacritty default is too wide and it makes `fastfetch` looks bad.
+
+
+# Default colors
+[colors.primary]
+background = "#000000"
+foreground = "#FFFFFF"  # Pure White text (Highest contrast against brown)
+
+# Normal colors (Vivid Neon)
+[colors.normal]
+black   = "#000000"
+red     = "#FF3333"  # Bright Red
+green   = "#00FF00"  # Electric Lime Green
+yellow  = "#FFFF00"  # Pure Yellow
+blue    = "#0066FF"  # Electric Blue
+magenta = "#FF00FF"  # Hot Pink
+cyan    = "#00FFFF"  # Cyan
+white   = "#FFFFFF"
+
+# Bright colors (For bold text - almost glowing)
+[colors.bright]
+black   = "#555555"
+red     = "#FF5555"
+green   = "#55FF55"
+yellow  = "#FFFF55"
+blue    = "#5599FF"
+magenta = "#FF55FF"
+cyan    = "#55FFFF"
+white   = "#FFFFFF"

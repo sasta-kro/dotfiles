@@ -1,0 +1,53 @@
+# ~/dotfiles/.config/starship/starship.toml
+
+# insert a blank line before the prompt for visual separation
+# (bad idea for mosh cuz of scroll distance)
+# add_newline = true
+
+# Custom command line prompt format
+# this makes the full directory printed above the prompt line 
+# default is everything in 1 line (remove to set back to default)
+format = """
+$directory
+$all
+"""
+
+
+[directory]
+# Style applied to the directory segment
+style = "bold cyan"
+
+[git_branch]
+# Icon shown before the current Git branch name
+symbol = " "
+# Style applied to the git branch segment
+style = "bold purple"
+
+[docker_context]
+# Icon shown when a Docker context is active
+symbol = " "
+# Style applied to the docker context segment
+style = "blue dimmed"
+
+[hostname]
+# Only display hostname for SSH sessions (avoids local clutter)
+# mosh is not effected
+ssh_only = true
+# Style applied to the hostname segment
+style = "bold yellow"
+# Hostname module. If this set to false, starship will skip this section
+disabled = false
+
+[username]
+# Style for a normal (non-root) username
+style_user = "white bold"
+# Style when running as root (high-visibility warning style)
+style_root = "black bold red"
+# Always display the username in the prompt
+show_always = true
+
+[character]
+# Prompt glyph: green when last command succeeded
+success_symbol = "[➜](bold green)"
+# Prompt glyph: red when last command failed
+error_symbol = "[➜](bold red)"
