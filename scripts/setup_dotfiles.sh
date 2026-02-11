@@ -74,18 +74,24 @@ install_dependencies() {
         log "Installing Brew Bundles..."
         brew update
         # Core List
-        brew install stow zsh fzf starship eza fastfetch neovim yazi bat ripgrep
-        
+        brew install stow git zsh fzf starship eza fastfetch neovim yazi bat ripgrep \
+            zsh-autosuggestions zsh-syntax-highlighting    
+
     elif [ -f /etc/fedora-release ]; then
         # --- Fedora ---
         log "Detected Fedora. Installing DNF packages..."
         sudo dnf install -y \
-            zsh git stow fzf neovim \
-            util-linux-user \
-            yazi bat ripgrep \
-            fastfetch \
-            starship \
-            eza 
+                zsh \
+                git \
+                stow \
+                fzf \
+                neovim \
+                util-linux-user \
+                yazi \
+                bat \
+                ripgrep \
+                zsh-autosuggestions \
+                zsh-syntax-highlighting
             # Note: recent Fedora versions have fastfetch/eza in default repos. 
             # If not, the script will error, but usually it works on F40+.
     fi

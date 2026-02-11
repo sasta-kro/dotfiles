@@ -41,6 +41,25 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+## auto suggessions & syntax highlighting
+# Define the locations where plugins might live (Mac vs Linux)
+# Mac (Brew) usually: /opt/homebrew/share/...
+# Linux (DNF) usually: /usr/share/...
+
+# Autosuggestions (The Ghost Text)
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# Syntax Highlighting (Colors command errors in red, valid in green)
+if [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 
 # ====== Aliases ==========
 ## vanilla util aliases 
