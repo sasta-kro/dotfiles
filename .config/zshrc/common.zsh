@@ -10,6 +10,17 @@ export LC_CTYPE="en_GB.UTF-8"
 # ====== Default Editor =====
 export EDITOR='nvim'
 
+# ====== History Configuration ======
+HISTFILE="$HOME/.zsh_history"    # where to save history
+HISTSIZE=10000                   # how many lines to keep in memory
+SAVEHIST=10000                   # how many lines to save to disk
+setopt EXTENDED_HISTORY          # save timestamps
+setopt SHARE_HISTORY             # share history between open terminals instantly
+setopt HIST_EXPIRE_DUPS_FIRST    # delete duplicates first when cache is full
+setopt HIST_IGNORE_DUPS          # ignore consecutive duplicates
+setopt HIST_IGNORE_ALL_DUPS      # remove older duplicates if repeated
+setopt HIST_FIND_NO_DUPS         # do not display duplicates when searching
+
 
 # ====== Utility CLI programs =======
 # fzf (Fuzzy Finder)
