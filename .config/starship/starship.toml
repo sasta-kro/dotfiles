@@ -1,8 +1,24 @@
 # ~/dotfiles/.config/starship/starship.toml
 
+# ---------------------------------------------------------
+# > Starship Config Syntax Reference
+# TOML Sections: [module_name] configures that specific module (eg, [git_branch])
+# Variables ($): $variable inserts a value (eg, $directory, $symbol)
+# Formatting Syntax: "[content](style)"
+#    - [ ... ]: The text/variables to display
+#    - ( ... ): The color/style to apply to that text group
+# Example: "[$symbol$branch]($style)" -> Colors symbol+branch with the defined style.
+#--------------------------------------------------------
+
+
 # insert a blank line before the prompt for visual separation
 # (bad idea for mosh cuz of scroll distance)
 # add_newline = true
+
+
+# commands that starship uses to fetch info (eg. python version in an env)
+# sets this to 2000ms (default is 500ms) if this is reached, command is exited
+command_timeout = 1000
 
 # Custom command line prompt format
 # this makes the full directory printed above the prompt line 
@@ -22,6 +38,8 @@ style = "bold cyan"
 symbol = " "
 # Style applied to the git branch segment
 style = "bold purple"
+# this is what will be in place when $git_branch is called (or @all)
+format = "[$symbol$branch]($style)" # default: format="on $symbol$branch"
 
 [docker_context]
 # Icon shown when a Docker context is active
@@ -32,7 +50,7 @@ style = "blue dimmed"
 [hostname]
 # Only display hostname for SSH sessions (avoids local clutter)
 # mosh is not effected
-ssh_only = true
+ssh_only = false
 # Style applied to the hostname segment
 style = "bold yellow"
 # Hostname module. If this set to false, starship will skip this section
@@ -46,8 +64,25 @@ style_root = "black bold red"
 # Always display the username in the prompt
 show_always = true
 
+format = "[$user]($style)@" # default is "$user in"
+
 [character]
 # Prompt glyph: green when last command succeeded
 success_symbol = "[➜](bold green)"
 # Prompt glyph: red when last command failed
 error_symbol = "[➜](bold red)"
+
+
+# ======================== code 
+[python]
+symbol = "🐍 "
+# Only show python version if a py file exists or one is detected
+detect_extensions = ["py"]
+# The format string. removed "via " from the start.
+format = "[$symbol$version]($style) "
+
+[conda]
+symbol = "conda>:D"
+# Removed "via " and just show the symbol + environment name
+format = "[$symbol$environment]($style) "
+ignore_base = false

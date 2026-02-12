@@ -77,8 +77,10 @@ alias ls3="eza --icons=always --tree --level=2 *"
 
 # ====== Visuals ====
 # Starship - terminal prompt decoration (ohmyzsh replacement)
-# This loads the config from ~/dotfiles/.config/starship.toml automatically
-eval "$(starship init zsh)"
+# This loads the config from ~/dotfiles/.config/starship/starship.toml 
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+eval "$(starship init zsh)" # executes
+
 
 # fetch when startup
 fastfetch
