@@ -56,6 +56,9 @@ style = "bold yellow"
 # Hostname module. If this set to false, starship will skip this section
 disabled = false
 
+
+format = "[$hostname]($style) "
+
 [username]
 # Style for a normal (non-root) username
 style_user = "white bold"
