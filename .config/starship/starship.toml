@@ -24,7 +24,7 @@ command_timeout = 1000
 # this makes the full directory printed above the prompt line 
 # default is everything in 1 line (remove to set back to default)
 format = """
-$username$hostname$os$directory$git_branch$python$conda$docker_context
+$username$hostname$directory$git_branch$python$conda$docker_context
 $character"""
 
 
@@ -36,7 +36,7 @@ style = "bold cyan"
 # Icon shown before the current Git branch name
 symbol = " "
 # Style applied to the git branch segment
-style = "bold orange"
+style = "bold #FFA500" # orange
 # this is what will be in place when $git_branch is called (or @all)
 format = "[$symbol$branch]($style) " # default: format="on $symbol$branch"
 
@@ -45,11 +45,6 @@ format = "[$symbol$branch]($style) " # default: format="on $symbol$branch"
 symbol = " "
 # Style applied to the docker context segment
 style = "blue dimmed"
-
-[os]
-disabled = false
-style = "bold white"
-format = "[$symbol]($style)"
 
 [hostname]
 # Only display hostname for SSH sessions (avoids local clutter)
@@ -61,15 +56,15 @@ style = "bold green"
 # Hostname module. If this set to false, starship will skip this section
 disabled = false
 
-format = "[$ssh_symbol$hostname]($style) "
+format = "[$hostname$ssh_symbol]($style) 📁 "
 
 [username]
 # Style for a normal (non-root) username
 style_user = "bold yellow"
 # Style when running as root (high-visibility warning style)
 style_root = "black bold red"
-# Always display the username in the prompt
-show_always = true
+# true = always display the username, false = only display in ssh/mosh
+show_always = false
 
 format = "[$user]($style)@" # default is "$user in"
 
