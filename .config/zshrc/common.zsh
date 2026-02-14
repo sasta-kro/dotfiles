@@ -74,6 +74,9 @@ alias ls1="eza --icons=always --long --no-permissions --no-user --no-time -a"
 alias ls2="eza --icons=always --tree --level=1 *"
 alias ls3="eza --icons=always --tree --level=2 *"
 
+## My fun scripts
+alias fetch="bash $HOME/scripts/fedora-fastfetch-ascii-animation.sh"
+
 
 # ====== Visuals ====
 # Starship - terminal prompt decoration (ohmyzsh replacement)
