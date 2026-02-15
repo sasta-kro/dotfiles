@@ -73,6 +73,9 @@ install_dependencies() {
 
         log "Installing Brew Bundles..."
         brew update
+
+	brew install --cask font-meslo-lg-nerd-font # font
+
         # Core List
         brew install stow git zsh fzf starship eza fastfetch neovim yazi bat ripgrep \
             zsh-autosuggestions zsh-syntax-highlighting    
@@ -113,6 +116,7 @@ install_dependencies() {
              fi
         fi
         
+	
         # download starship from official website
         if ! command -v starship &> /dev/null; then
              curl -sS https://starship.rs/install.sh | sh -s -- -y
