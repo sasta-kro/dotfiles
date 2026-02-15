@@ -6,7 +6,7 @@
 # Universal Setup Script (Fedora & macOS)
 # 
 # install script for fresh machine
-# `sh -c "$(curl -fsSL https://raw.githubusercontent.com/sasta-kro/dotfiles/main/scripts/bootstrap.sh)"`
+# `sh -c "$(curl -fsSL https://raw.githubusercontent.com/sasta-kro/dotfiles/main/scripts/setup_dotfiles.sh)"`
 # ==============================================================================
 
 
@@ -92,8 +92,31 @@ install_dependencies() {
                 ripgrep \
                 zsh-autosuggestions \
                 zsh-syntax-highlighting
-            # Note: recent Fedora versions have fastfetch/eza in default repos. 
-            # If not, the script will error, but usually it works on F40+.
+	
+        # eza is not in the dnf repo nor copr repos TwT
+        if ! command -v eza &> /dev/null; then
+            log "Installing Eza manually..."
+            wget -c https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz -O - | tar xz
+            sudo chmod +x eza
+            sudo mv eza /usr/local/bin/eza
+        fi
+
+        # fastfetch is also not in the official repos
+        if ! command -v fastfetch &> /dev/null; then
+             log "Installing Fastfetch manually..."
+             # Try DNF first (cleaner)
+             if ! sudo dnf install -y fastfetch; then
+                 warn "Fastfetch not in repos. Installing via RPM..."
+                 wget https://github.com/fastfetch-cli/fastfetch/releases/latest/download/fastfetch-linux-amd64.rpm
+                 sudo dnf install -y ./fastfetch-linux-amd64.rpm
+                 rm fastfetch-linux-amd64.rpm
+             fi
+        fi
+        
+        # download starship from official website
+        if ! command -v starship &> /dev/null; then
+             curl -sS https://starship.rs/install.sh | sh -s -- -y
+        fi
     fi
 }
 
@@ -101,7 +124,7 @@ install_dependencies() {
 # Intelligent Backup
 # ==============================================================================
 
-backup_conflicts() {
+check_backup_conflicts() {
     log "Scanning for conflicts to backup..."
     
     # Switch to dotfiles dir to see what we are about to stow
@@ -161,6 +184,6 @@ finalize_setup() {
 
 clone_repo          # get the files first
 install_dependencies # get the tools (stow, etc)
-backup_conflicts    # move old junk out of the way
+check_backup_conflicts    # move old junk out of the way
 apply_stow          #  link the new files
 finalize_setup      # set Shell
