@@ -1,0 +1,3 @@
+[manager]
+# Always show hidden files (dotfiles) by default
+show_hidden = true
