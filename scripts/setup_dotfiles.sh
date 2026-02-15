@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# TODO: THIS SCRIPT IS NOT TESTED YET
+# this script is tested to work on Fedora machines (follow readme)
 
 # ==============================================================================
 # Universal Setup Script (Fedora & macOS)
