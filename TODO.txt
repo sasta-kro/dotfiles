@@ -1,0 +1,1 @@
+- Make a .bashrc file and symlink for backup when zsh and .zshrc breaks (just in case)
